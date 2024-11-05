@@ -1,12 +1,14 @@
 #include <stdio.h>
+#define LL long long int
 
-int solve(int n, int city) {
-    int consumos[201] = {0};
-    int i, a, b, p, pt = 0, cm;
+int solve(LL n, LL city) {
+    LL consumos[201] = {0};
+    LL i, a, b, p, pt = 0;
+    int cm;
     float c, ctm, ct = 0;
 
     for(i = 0; i < n; i++) {
-        scanf("%d %f", &p, &c);
+        scanf("%lld %f", &p, &c);
         pt += p;
         ct += c;
         cm = (int) c / p;
@@ -14,21 +16,21 @@ int solve(int n, int city) {
     }
 
     ctm = ct / pt;
-    ctm = (float) ((int) (ctm * 100)) / 100;
+    ctm = (float) ((int) (ctm * 1000)) / 1000;
 
     if (city != 1){
         printf("\n");
     }
-    printf("Cidade# %d\n", city);
+    printf("Cidade# %lld:\n", city);
     
     b = 0;
     for(i = 0; i <= 200; i++) {
         a = consumos[i];
-        if(a) {
-            if(b){
+        if(a != 0) {
+            if(b != 0){
                 printf(" ");
             }
-            printf("%d-%d", a, i);
+            printf("%lld-%lld", a, i);
             b = 1;
         }
     }
@@ -39,10 +41,10 @@ int solve(int n, int city) {
 }
 
 int main() {
-    int n, city = 1;
+    LL n, city = 1;
 
     while(1) {
-        scanf("%d", &n);
+        scanf("%lld", &n);
         if(!n) break;
         solve(n, city);
         city++;
