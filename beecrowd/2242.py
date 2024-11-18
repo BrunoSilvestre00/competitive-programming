@@ -1,0 +1,1 @@
+print('S' if (c:= [l for l in input() if l in ['a', 'e', 'i', 'o', 'u']]) == c[::-1] else 'N')

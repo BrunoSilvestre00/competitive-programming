@@ -1,0 +1,1 @@
+print('\n'.join(''.join([i[0] for i in input().split()]) for _ in range(int(input()))))
